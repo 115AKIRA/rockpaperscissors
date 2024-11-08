@@ -157,3 +157,15 @@ footer a {
 	border: 12px solid darkorange;
 	
 }
+
+.hovered {
+	
+	border: 6px solid darkred;
+	
+}
+
+.none {
+	
+	border: 6px solid transparent !important;
+	
+}

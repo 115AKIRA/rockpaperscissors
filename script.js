@@ -28,15 +28,19 @@ window.addEventListener("load", () => {
 			
 			imagesjeux[i].src = "questionmark.png";
 			scores[i].innerText = "0";
-			score = 0;
 			
 		}
+		
+		score = 0;
+		clicked = 0;
 		
 	}
 	
 	btnReset.addEventListener("click", () => {
 		
-		startGame();
+		if (!(clicked)) {
+			startGame();
+		}
 		
 	});
 	
@@ -44,7 +48,16 @@ window.addEventListener("load", () => {
 		
 		imagesselec[j].addEventListener("click", (e) => {
 
-			if (!(clicked)) {
+			if ((clicked == 0)) {
+				
+				for ( let l = 0 ; l < imagesselec.length ; l++ ) {
+					
+					imagesselec[l].classList.add("none");
+					
+				}
+				
+				imagesselec[j].classList.remove("none");
+				imagesselec[j].classList.add("hovered");
 				
 				clicked = 1;
 			
@@ -93,11 +106,18 @@ window.addEventListener("load", () => {
 							
 						}
 						
+						for ( let m = 0 ; m < imagesselec.length ; m++ ) {
+							
+							imagesselec[m].classList.remove("none");
+							imagesselec[m].classList.remove("hovered");
+							
+						}
+						
 					}, "1000");
 					
+					clicked = 0;
+					
 				}, "1000");
-				
-				clicked = 0;
 				
 			}
 		
