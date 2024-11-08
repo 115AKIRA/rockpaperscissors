@@ -11,13 +11,9 @@ window.addEventListener("load", () => {
 	
 	let score = 0;
 	
-	const imageslist = ["rock.png", "paper.png", "scissors.png"];
+	let clicked = 0;
 	
-	const combinations = [	
-		["11", "22", "33"], //tie
-		["13", "21", "32"], //p1 win
-		["31", "12", "23"]  //p2 win
-	];
+	const imageslist = ["rock.png", "paper.png", "scissors.png"];
 	
 	const win_condition = [ 
 	//   tie   p2    p1
@@ -25,8 +21,6 @@ window.addEventListener("load", () => {
 		"22", "23", "21", 
 		"33", "31", "32" 
 	] // mod of win_condition by 3 : tie if 0, p2 win if 1, p1 win if 2
-	
-	console.log(combinations);
 	
 	function startGame() {
 		
@@ -49,59 +43,63 @@ window.addEventListener("load", () => {
 	for ( let j = 0 ; j < imagesselec.length ; j++ ) {
 		
 		imagesselec[j].addEventListener("click", (e) => {
-		
-			imagesjeux[0].src = (e.target.attributes.src.value);
-			
-			score = 0;
-			
-			score += 10 + ( 10 * imageslist.indexOf(imagesjeux[0].attributes.src.value) );
-			let rng = Math.floor(Math.random() * 3);
-			
-			score = score + 1 + ( 1 * rng );
-			
-			let win = ( win_condition.indexOf(score.toString()) % 3 );
-			console.log("score = " + score + " | win = " + win );
-			
-			setTimeout( () => {
-				
-				imagesjeux[1].src = imageslist[rng];	
 
-				if (win == 0) {
-					
-					imagesjeux[0].classList.add("tie");
-					imagesjeux[1].classList.add("tie");
-					
-				} else if (win == 1) {
-					
-					imagesjeux[0].classList.add("loser");
-					imagesjeux[1].classList.add("winner");
-					scores[1].innerText = ( parseInt(scores[1].innerText) + 1 );
-					
-				} else if (win == 2) {
-					
-					imagesjeux[0].classList.add("winner");
-					imagesjeux[1].classList.add("loser");
-					scores[0].innerText = ( parseInt(scores[0].innerText) + 1 );
-					
-				}
+			if (!(clicked)) {
+				
+				clicked = 1;
+			
+				imagesjeux[0].src = (e.target.attributes.src.value);
+				
+				score = 0;
+				
+				score += 10 + ( 10 * imageslist.indexOf(imagesjeux[0].attributes.src.value) );
+				let rng = Math.floor(Math.random() * 3);
+				
+				score = score + 1 + ( 1 * rng );
+				
+				let win = ( win_condition.indexOf(score.toString()) % 3 );
 				
 				setTimeout( () => {
 					
-					for ( let k = 0 ; k < imagesjeux.length ; k++ ) {
+					imagesjeux[1].src = imageslist[rng];	
+
+					if (win == 0) {
 						
-						imagesjeux[k].classList.remove("winner");
-						imagesjeux[k].classList.remove("loser");
-						imagesjeux[k].classList.remove("tie");
-						imagesjeux[k].src = "questionmark.png";
+						imagesjeux[0].classList.add("tie");
+						imagesjeux[1].classList.add("tie");
+						
+					} else if (win == 1) {
+						
+						imagesjeux[0].classList.add("loser");
+						imagesjeux[1].classList.add("winner");
+						scores[1].innerText = ( parseInt(scores[1].innerText) + 1 );
+						
+					} else if (win == 2) {
+						
+						imagesjeux[0].classList.add("winner");
+						imagesjeux[1].classList.add("loser");
+						scores[0].innerText = ( parseInt(scores[0].innerText) + 1 );
 						
 					}
 					
+					setTimeout( () => {
+						
+						for ( let k = 0 ; k < imagesjeux.length ; k++ ) {
+							
+							imagesjeux[k].classList.remove("winner");
+							imagesjeux[k].classList.remove("loser");
+							imagesjeux[k].classList.remove("tie");
+							imagesjeux[k].src = "questionmark.png";
+							
+						}
+						
+					}, "1000");
+					
 				}, "1000");
 				
-			}, "1000");
-			
-			
-			
+				clicked = 0;
+				
+			}
 		
 		});
 	

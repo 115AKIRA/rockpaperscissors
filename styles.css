@@ -62,8 +62,8 @@ th {
 
 img {
 	
-	height: 10%;
-	width: 10%;
+	height: 125px;
+	width: 125px;
 	display: inline-block;
 	border-radius: 100%;
 	
@@ -79,7 +79,7 @@ section, article {
 
 section img {
 	
-	margin: 2% 15%;
+	margin: 2% 8%;
 	background-color: snow;
 	border: 12px solid transparent;
 	
@@ -87,7 +87,7 @@ section img {
 
 article img {
 	
-	margin: 2% 10%;
+	margin: 2% 8%;
 	border: 6px solid transparent;
 	
 }
@@ -111,6 +111,7 @@ article button {
 	box-shadow: inset 3px 3px indigo;
 	border: 2px solid darkslateblue;
 	color: snow;
+	height: 45px;
 	
 }
 
