@@ -81,6 +81,7 @@ section img {
 	
 	margin: 2% 15%;
 	background-color: snow;
+	border: 12px solid transparent;
 	
 }
 
@@ -135,5 +136,23 @@ footer {
 footer a {
 	
 	color: blue;
+	
+}
+
+.loser {
+	
+	border: 12px solid darkred;
+	
+}
+
+.winner {
+	
+	border: 12px solid darkgreen;
+	
+}
+
+.tie {
+	
+	border: 12px solid darkorange;
 	
 }
