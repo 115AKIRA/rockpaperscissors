@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
 	
 	let clicked = 0;
 	
-	const imageslist = ["rock.png", "paper.png", "scissors.png"];
+	const imageslist = ["./img/rock.png", "./img/paper.png", "./img/scissors.png"];
 	
 	const win_condition = [ 
 	//   tie   p2    p1
@@ -26,7 +26,7 @@ window.addEventListener("load", () => {
 		
 		for( let i = 0; i < imagesjeux.length; i++ ) {
 			
-			imagesjeux[i].src = "questionmark.png";
+			imagesjeux[i].src = "./img/questionmark.png";
 			scores[i].innerText = "0";
 			
 		}
@@ -102,7 +102,7 @@ window.addEventListener("load", () => {
 							imagesjeux[k].classList.remove("winner");
 							imagesjeux[k].classList.remove("loser");
 							imagesjeux[k].classList.remove("tie");
-							imagesjeux[k].src = "questionmark.png";
+							imagesjeux[k].src = "./img/questionmark.png";
 							
 						}
 						
