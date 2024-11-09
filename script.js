@@ -110,32 +110,42 @@ window.addEventListener("load", () => {
 				// pour attendre 1 seconde (1000 ms)
 				setTimeout( () => {
 					
-					// TODO
+					// la source de l'image de l'IA dans la section joueur vs AI est actualise a l'image dans la table d'image dont l'index correspond avec la rng
 					imagesjeux[1].src = imageslist[rng];	
 
+					// si egalite
 					if (win == 0) {
 						
+						// les deux images joueurs et IA ont une classe qui affiche une bordure orange
 						imagesjeux[0].classList.add("tie");
 						imagesjeux[1].classList.add("tie");
 						
+					// sinon si j2 (IA) gagne
 					} else if (win == 1) {
 						
+						// le j1 est perdant, le j2 est gagnant, on ajoute des classes appropriees (vert pour gagnant, rouge pour perdant) et on increment le score du gagnant
 						imagesjeux[0].classList.add("loser");
 						imagesjeux[1].classList.add("winner");
+						// pourquoi parseInt ? pour etre sur que la valeur du score est comprise comme un nombre et non une chaine de caractere (ne pas concatener)
 						scores[1].innerText = ( parseInt(scores[1].innerText) + 1 );
 						
+					// sinon si j1 (joueur) gagne
 					} else if (win == 2) {
 						
+						// c'est l'inverse
 						imagesjeux[0].classList.add("winner");
 						imagesjeux[1].classList.add("loser");
 						scores[0].innerText = ( parseInt(scores[0].innerText) + 1 );
 						
 					}
 					
+					// un autre timer de 1 seconde
 					setTimeout( () => {
 						
+						// sur les images joueur et IA
 						for ( let k = 0 ; k < imagesjeux.length ; k++ ) {
 							
+							// on enleve toute les classes pour les bordures et on reinitialise la source de l'image
 							imagesjeux[k].classList.remove("winner");
 							imagesjeux[k].classList.remove("loser");
 							imagesjeux[k].classList.remove("tie");
@@ -143,15 +153,18 @@ window.addEventListener("load", () => {
 							
 						}
 						
+						// sur les 3 choix du joueurs
 						for ( let m = 0 ; m < imagesselec.length ; m++ ) {
 							
+							// on enleve les clesses css qui empechent qu'on voient une bordure rouge eu survolant une image
 							imagesselec[m].classList.remove("none");
 							imagesselec[m].classList.remove("hovered");
 							
-						}
+						}	
 						
 					}, "1000");
 					
+					// et juste avant la fin du 1er timer, on active la possibiliter de cliquer sur un choix ou sur un bouton
 					clicked = 0;
 					
 				}, "1000");
@@ -170,7 +183,5 @@ window.addEventListener("load", () => {
 		}
 		
 	});
-	
-	startGame();
 	
 });
