@@ -160,14 +160,15 @@ window.addEventListener("load", () => {
 							imagesselec[m].classList.remove("none");
 							imagesselec[m].classList.remove("hovered");
 							
-						}	
+						}
+
+						
+					// et juste avant la fin du 2eme timer, on active la possibiliter de cliquer sur un choix ou sur un bouton
+					clicked = 0;
 						
 					}, "1000");
 					
 				}, "1000");
-
-				// et juste après la fin du 2eme timer, on active la possibiliter de cliquer sur un choix ou sur un bouton
-				clicked = 0;
 				
 			}
 		
