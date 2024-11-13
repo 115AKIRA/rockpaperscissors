@@ -164,10 +164,10 @@ window.addEventListener("load", () => {
 						
 					}, "1000");
 					
-					// et juste avant la fin du 1er timer, on active la possibiliter de cliquer sur un choix ou sur un bouton
-					clicked = 0;
-					
 				}, "1000");
+
+				// et juste après la fin du 2eme timer, on active la possibiliter de cliquer sur un choix ou sur un bouton
+				clicked = 0;
 				
 			}
 		
